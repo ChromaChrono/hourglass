@@ -1,0 +1,1 @@
+import HTMLTemplate from"./template.html";import CSSStyles from"./styles.css";import javascript from"../src/index.js";export default()=>{HTMLElement,CreateHourglass.prototype.core=javascript,customElements.define("hourglass",CreateClock)};

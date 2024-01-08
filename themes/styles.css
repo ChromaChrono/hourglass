@@ -9,45 +9,52 @@ body {
 
 .hourglass__container {
   height: 30rem;
-  width: 30rem;
+  width: 17rem;
   /* border: 1px solid black; */
-  transform: rotate(0);
+  postition: relative;
 }
 
 .hourglass__rim {
   height: 6%;
-  width: 55%;
-  margin: 0 Auto;
+  width: 100%;
+  margin: 0 auto;
   border: 1px solid black;
 }
 
 .hourglass__dome {
+  position: relative;
   margin: 0 auto;
   height: 44%;
-  width: 50%;
+  width: 93%;
   border: 1px solid black;
   border-radius: 0 0 50% 50%;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
+  /* background: white; */
 }
 
 .hourglass__dome--top {
   border-radius: 0 0 50% 50%;
+  z-index: 100;
+  /* background: green; */
 }
 .hourglass__dome--bottom {
   border-radius: 50% 50% 0 0;
+  z-index: 1000;
+  /* background: red; */
 }
 
 .hourglass__sand {
   width: 100%;
-
   background: black;
 }
 
-.hourglass__sand--top {
-  height: 20%;
-}
-.hourglass__sand--bottom {
-  height: 80%;
+.hourglass__falling-sand {
+  width: 1%;
+  height: 100%;
+  background: black;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
