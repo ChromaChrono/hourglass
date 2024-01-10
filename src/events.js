@@ -1,9 +1,9 @@
 import { flip } from "./actions";
 
 const events = (globals) => {
-  hourglass.addEventListener("click", () => {
-    if (!globals.flipping) {
-      flip();
+  globals.hourglass.addEventListener("click", () => {
+    if (!globals.isFlipping) {
+      flip(globals);
     }
   });
 };

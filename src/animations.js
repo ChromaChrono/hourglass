@@ -1,14 +1,12 @@
-let sandInterval;
-let rotationTime = 700;
-let flipping = false;
+import { updateSandLevels } from "./actions";
+import { init } from "./actions";
 
-const animateSand = (globals) => {
+const animateSand = async (globals) => {
+  globals.isFlipping = true;
   const time = Date.now();
-  clearInterval(sandInterval);
-  flipping = true;
-  sandInterval = setInterval(() => {
+  const sandInterval = setInterval(() => {
     const timePassed = Date.now() - time;
-    const animationPercent = (timePassed / rotationTime) * 100;
+    const animationPercent = (timePassed / globals.rotationTime) * 100;
 
     const rotationDegrees = -1 * 1.8 * animationPercent;
 
@@ -23,20 +21,14 @@ const animateSand = (globals) => {
       sidePercentage = 1 - (animationPercent - 50) / 50;
     }
 
-    // globals.sandAPercent = 70
-    // globals.sandBPercent = 30
-
-    // 0%: width: 100%; height: value;
-    // 50%: width: value; height: 100%;
-    // 100%: width 100%; height: value
-
     globals.sandA.style.height = `${Math.floor(
       globals.sandAPercent +
-        (sandAPercent >= 2 ? 100 - globals.sandAPercent : 0) * sidePercentage
+        (globals.sandAPercent >= 2 ? 100 - globals.sandAPercent : 0) *
+          sidePercentage
     )}%`;
     globals.sandA.style.width = `${Math.floor(
       globals.sandAPercent +
-        (sandAPercent >= 2 ? 100 - globals.sandAPercent : 0) *
+        (globals.sandAPercent >= 2 ? 100 - globals.sandAPercent : 0) *
           (1 - sidePercentage)
     )}%`;
 
@@ -65,9 +57,9 @@ const animateSand = (globals) => {
       clearInterval(sandInterval);
       globals.sandAPercent = globals.sandBPercent;
       globals.sandBPercent = 100 - globals.sandAPercent;
-      updateSandLevels();
-      flipping = false;
-      init();
+      updateSandLevels(globals);
+      init(globals);
+      globals.isFlipping = false;
     }
   }, 1);
 };
