@@ -8,7 +8,7 @@ export default (root) => {
 
   const globals = {
     // Time in seconds
-    time: 10,
+    time: 180,
     sandA,
     sandB,
     hourglass,
