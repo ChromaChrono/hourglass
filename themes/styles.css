@@ -21,6 +21,19 @@ body {
   border: 1px solid black;
 }
 
+.hourglass__rim--bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hourglass__rim--bottom input {
+  width: 15%;
+  position: relative;
+  left: 1ch;
+  display: flex;
+}
+
 .hourglass__dome {
   position: relative;
   margin: 0 auto;
